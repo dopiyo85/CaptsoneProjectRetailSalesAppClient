@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 
 import Inventory from './components/Inventory';
@@ -14,14 +14,14 @@ const App = () => {
   return (
     <Router>
       <Container>
-        <Switch>
+        <Routes>
           <Route exact path="/" component={Dashboard} />
           <Route path="/inventory" component={Inventory} />
           <Route path="/shop-locator" component={ShopLocator} />
           <Route path="/agent-management" component={AgentManagement} />
           <Route path="/invoice" component={Invoice} />
           <Route path="/receipt" component={Receipt} />
-        </Switch>
+        </Routes>
       </Container>
     </Router>
   );

@@ -31,7 +31,7 @@
 
 // export default ShopLocator;
 import React, { useState } from "react";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const ShopLocator = () => {
   const [position, setPosition] = useState([51.505, -0.09]);
@@ -43,12 +43,12 @@ const ShopLocator = () => {
   return (
     <div>
       <h1>Shop Locator</h1>
-      <Map center={position} zoom={13} onClick={handleMapClick}>
+      <MapContainer center={position} zoom={13} onClick={handleMapClick}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={position}>
           <Popup>Your location</Popup>
         </Marker>
-      </Map>
+      </MapContainer>
     </div>
   );
 };
