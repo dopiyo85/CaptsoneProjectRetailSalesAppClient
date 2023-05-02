@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 
-function App() {
+import Inventory from './components/Inventory';
+import ShopLocator from './components/ShopLocator';
+import AgentManagement from './components/AgentManagement';
+import Invoice from './components/Invoice';
+import Receipt from './components/Receipt';
+import Dashboard from './components/Dashboard';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/inventory" component={Inventory} />
+          <Route path="/shop-locator" component={ShopLocator} />
+          <Route path="/agent-management" component={AgentManagement} />
+          <Route path="/invoice" component={Invoice} />
+          <Route path="/receipt" component={Receipt} />
+        </Switch>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
