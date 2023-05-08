@@ -15,12 +15,12 @@ const App = () => {
     <Router>
       <Container>
         <Routes>
-          <Route exact path="/" component={Dashboard} />
-          <Route path="/inventory" component={Inventory} />
-          <Route path="/shop-locator" component={ShopLocator} />
-          <Route path="/agent-management" component={AgentManagement} />
-          <Route path="/invoice" component={Invoice} />
-          <Route path="/receipt" component={Receipt} />
+          <Route exact path="/" element={Dashboard} />
+          <Route path="/inventory" element={Inventory} />
+          <Route path="/shop-locator" element={ShopLocator} />
+          <Route path="/agent-management" element={AgentManagement} />
+          <Route path="/invoice" element={Invoice} />
+          <Route path="/receipt" element={Receipt} />
         </Routes>
       </Container>
     </Router>
