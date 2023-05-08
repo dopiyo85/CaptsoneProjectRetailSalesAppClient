@@ -9,13 +9,15 @@ import AgentManagement from './components/AgentManagement';
 import Invoice from './components/Invoice';
 import Receipt from './components/Receipt';
 import Dashboard from './components/Dashboard';
+import Home from './components/Home'; // Import the Home component
 
 const App = () => {
   return (
     <Router>
       <Container>
         <Routes>
-          <Route exact path="/" element={Dashboard} />
+          <Route exact path="/" element={<Home />} /> {/* Add this new Route element */}
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={Inventory} />
           <Route path="/shop-locator" element={ShopLocator} />
           <Route path="/agent-management" element={AgentManagement} />
