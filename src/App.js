@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import Home from './components/Home';
+
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -27,9 +29,9 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-function Home() {
-  return <h1>Welcome to the Online App</h1>;
-}
+// function Home() {
+//   return <h1>Welcome to the Online App</h1>;
+// }
 
 function About() {
   return (
@@ -96,16 +98,11 @@ function App() {
         </nav>
 
         <ErrorBoundary>
-          <Routes>
-            <Route path="/about">
-              <About />
+        <Routes>
+            <Route path="/about" element={<About />}> </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
             </Route>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            <Route path="/"  element={<Home />}> </Route>
           </Routes>
         </ErrorBoundary>
 

@@ -5,13 +5,6 @@ import './styles/home.css';
 const Home = () => {
   return (
     <div className="home">
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/dashboard">Buy</Link></li>
-        </ul>
-      </nav>
       <div className="banner">
         <h1>Welcome to our store</h1>
         <p>Shop the latest products from our collection</p>
