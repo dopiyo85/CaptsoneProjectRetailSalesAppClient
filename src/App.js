@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Home from './components/Home';
+import Faqs from './components/Faqs';
 
 
 class ErrorBoundary extends React.Component {
@@ -94,6 +95,10 @@ function App() {
             <li>
               <Link to="/dashboard">Dashboard</Link>
             </li>
+            <li>
+              <Link to="/FAQs">FAQs</Link>
+            </li>
+  
           </ul>
         </nav>
 
@@ -102,7 +107,9 @@ function App() {
             <Route path="/about" element={<About />}> </Route>
             <Route path="/dashboard" element={<Dashboard />}>
             </Route>
+            <Route path="/faqs"  element={<Faqs />}> </Route>
             <Route path="/"  element={<Home />}> </Route>
+            
           </Routes>
         </ErrorBoundary>
 
