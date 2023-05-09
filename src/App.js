@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-// import './styles.css';
+import './styles.css';
 import Home from './components/Home';
 import Faqs from './components/Faqs';
 import ShoppingCart from './components/ShoppingCart';
@@ -60,17 +60,11 @@ function Dashboard() {
 
   return (
     <div>
-      {dashboard &&
-        <>
-          <h1>{dashboard.name}</h1>
-          <p>{dashboard.description}</p>
-        </>
-      }
-
       <ul>
-        {products.map(product => (
+      {products.map(product => (
           <li key={product._id}>
             <h2>{product.name}</h2>
+            <img src={product.imageUrl} alt={product.name} />
             <p>{product.description}</p>
             <p>${product.price}</p>
             <p>{product.quantity} in stock</p>
@@ -163,141 +157,4 @@ function App() {
 }
 
 export default App;
-// import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// import axios from 'axios';
-// import './App.css';
-// import Home from './components/Home';
-// import Faqs from './components/Faqs';
 
-
-// class ErrorBoundary extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { hasError: false };
-//   }
-
-//   static getDerivedStateFromError(error) {
-//     return { hasError: true };
-//   }
-
-//   componentDidCatch(error, errorInfo) {
-//     console.log('Error:', error);
-//     console.log('Error Info:', errorInfo);
-//   }
-
-//   render() {
-//     if (this.state.hasError) {
-//       return <h1>Something went wrong.</h1>;
-//     }
-
-//     return this.props.children;
-//   }
-// }
-// function About() {
-//   return (
-//     <div>
-//       <h1>About Us</h1>
-//       <p>We are a company dedicated to providing quality online products to our customers.</p>
-//     </div>
-//   );
-// }
-
-// function Dashboard() {
-//   const [dashboard, setDashboard] = useState(null);
-//   const [products, setProducts] = useState([]);
-
-//   useEffect(() => {
-//     axios.get('https://captsoneprojectretailsalesappbackend.onrender.com/api/dashboard')
-//       .then(res => setDashboard(res.data))
-//       .catch(err => console.log(err));
-
-//     axios.get('https://captsoneprojectretailsalesappbackend.onrender.com/api/products')
-//       .then(res => setProducts(res.data))
-//       .catch(err => console.log(err));
-//   }, []);
-
-//   return (
-//     <div>
-//       {dashboard &&
-//         <>
-//           <h1>{dashboard.name}</h1>
-//           <p>{dashboard.description}</p>
-//         </>
-//       }
-
-//       <ul>
-//         {products.map(product => (
-//           <li key={product._id}>
-//             <h2>{product.name}</h2>
-//             <p>{product.description}</p>
-//             <p>${product.price}</p>
-//             <p>{product.quantity} in stock</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <nav>
-//           <ul>
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="/about">About Us</Link>
-//             </li>
-//             <li>
-//               <Link to="/dashboard">Dashboard</Link>
-//             </li>
-//             <li>
-//               <Link to="/FAQs">FAQs</Link>
-//             </li>
-
-//           </ul>
-//         </nav>
-
-//         <ErrorBoundary>
-//           <Routes>
-//             <Route path="/about" element={<About />}> </Route>
-//             <Route path="/dashboard" element={<Dashboard />}>
-//             </Route>
-//             <Route path="/faqs" element={<Faqs />}> </Route>
-//             <Route path="/" element={<Home />}> </Route>
-
-//           </Routes>
-//         </ErrorBoundary>
-
-//         <footer>
-
-         
-//           <div class="container-fluid d-flex text-light">
-//             <span>CAPSTONE &trade;</span>
-
-//             <span class="navbar-brand fs-6 ms-auto">Follow Us:</span>
-//             <a href="https://www.instagram.com/safaricomplc_/" target="blank" title="instagram"><i class="bi bi-instagram text-light mx-1 mx-md-3"></i></a>
-//             <a href="https://web.facebook.com/SafaricomPLC" target="blank" title="facebook"><i class="bi bi-facebook text-light mx-1 mx-md-3"></i></a>
-//             <a href="http://m.me/SafaricomZuri" target="blank" title="whatsapp"><i class="bi bi-whatsapp text-light mx-1 mx-md-3"></i></a>
-//             <a href="https://www.tiktok.com/@safaricomplc?lang=en" target="blank" title="tiktok"><i class="bi bi-tiktok text-light mx-1 mx-md-3"></i></a>
-//           </div>
-        
-//           <div>
-//             <h4>Contact Us</h4>
-//             <ul>
-//               <li>Email: customercare@safaricom.co.ke</li>
-//               <li>Phone: 100 for prepaid and 200 for postpaid</li>
-//               <li>Addres: 123 Main Street, Anytown USA</li>
-//             </ul>
-//           </div>
-//         </footer>
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
