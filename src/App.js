@@ -98,36 +98,60 @@ function App() {
             <li>
               <Link to="/FAQs">FAQs</Link>
             </li>
-  
+
           </ul>
         </nav>
 
         <ErrorBoundary>
-        <Routes>
+          <Routes>
             <Route path="/about" element={<About />}> </Route>
             <Route path="/dashboard" element={<Dashboard />}>
             </Route>
-            <Route path="/faqs"  element={<Faqs />}> </Route>
-            <Route path="/"  element={<Home />}> </Route>
-            
+            <Route path="/faqs" element={<Faqs />}> </Route>
+            <Route path="/" element={<Home />}> </Route>
+
           </Routes>
         </ErrorBoundary>
 
         <footer>
-          <div>
+
+
+          {/* <span>CAPSTONE &trade;</span>
             <h4>Follow Us</h4>
             <ul>
               <li>
-                <a href="https://www.facebook.com/">Facebook</a>
+                <a href="https://web.facebook.com/SafaricomPLC" target="blank" title="facebook"><i class="bi bi-facebook text-light mx-1 mx-md-3"></i></a>
               </li>
               <li>
-                <a href="https://www.twitter.com/">Twitter</a>
+                <a href="https://twitter.com/safaricom_care?lang=en" target="blank" title="twitter"><i class="bi bi-facebook text-light mx-1 mx-md-3"></i></a>
               </li>
               <li>
-                <a href="https://www.instagram.com/">Instagram</a>
+                <a href="https://www.instagram.com/safaricomplc_/" target="blank" title="instagram"><i class="bi bi-instagram text-light mx-1 mx-md-3"></i></a>
               </li>
             </ul>
+          </div> */}
+          <div class="container-fluid d-flex text-light">
+            <span>CAPSTONE &trade;</span>
+
+            <span class="navbar-brand fs-6 ms-auto">Follow Us:</span>
+            <a href="https://www.instagram.com/safaricomplc_/" target="blank" title="instagram"><i class="bi bi-instagram text-light mx-1 mx-md-3"></i></a>
+            <a href="https://web.facebook.com/SafaricomPLC" target="blank" title="facebook"><i class="bi bi-facebook text-light mx-1 mx-md-3"></i></a>
+            <a href="http://m.me/SafaricomZuri" target="blank" title="whatsapp"><i class="bi bi-whatsapp text-light mx-1 mx-md-3"></i></a>
+            <a href="https://www.tiktok.com/@safaricomplc?lang=en" target="blank" title="tiktok"><i class="bi bi-tiktok text-light mx-1 mx-md-3"></i></a>
           </div>
+
+          {/* <nav class="navbar fixed-bottom navbar-dark bg-primary">
+        
+        <div class="container-fluid d-flex text-light">
+          <span>CAPSTONE &trade;</span>
+
+          <span class="navbar-brand fs-6 ms-auto">Follow Us:</span>
+          <a href="https://www.instagram.com/safaricomplc_/"target="blank"title="instagram"><i class="bi bi-instagram text-light mx-1 mx-md-3"></i></a>
+          <a href="https://web.facebook.com/SafaricomPLC"target="blank"title="facebook"><i class="bi bi-facebook text-light mx-1 mx-md-3"></i></a>
+          <a href="http://m.me/SafaricomZuri" target="blank"title="whatsapp"><i class="bi bi-whatsapp text-light mx-1 mx-md-3"></i></a>
+          <a href="https://www.tiktok.com/@safaricomplc?lang=en"target="blank"title="tiktok"><i class="bi bi-tiktok text-light mx-1 mx-md-3"></i></a>
+        </div>
+      </nav> */}
 
           <div>
             <h4>Contact Us</h4>
