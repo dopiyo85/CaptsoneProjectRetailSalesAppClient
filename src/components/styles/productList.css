@@ -1,3 +1,6 @@
+.home{
+  background-color: floralwhite;
+}
 .product-list {
     display: flex;
     flex-wrap: wrap;

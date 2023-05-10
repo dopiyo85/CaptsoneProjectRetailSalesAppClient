@@ -1,7 +1,10 @@
 .home{
-  background-color: floralwhite;
+    background-color: floralwhite;
 }
-  
+.faqs{
+background-color: limegreen;
+  }
+
   nav {
     background-color: #333;
     color: #fff;
@@ -30,7 +33,7 @@
   .banner {
     background-image: url("https://example.com/banner.jpg");
     background-size: cover;
-    color: hwb(0 100% 0%);
+    color: #fff;
     padding: 50px;
     text-align: center;
   }
@@ -91,14 +94,13 @@
     font-size: 24px;
   }
 
-  body{
-    background-color:#f1f1f1
-  }
   p{
-    color: lightskyblue;
+    color: mediumpurple;
   }
 
   h1{
-    color: darkturquoise;
+    color: coral;
   }
-  
+  body{
+    text-align: center;
+  }
