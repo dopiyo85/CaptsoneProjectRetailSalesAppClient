@@ -1,3 +1,6 @@
+.home{
+  background-color: floralwhite;
+}
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -30,4 +33,5 @@
     font-size: 18px;
     margin-bottom: 10px;
   }
+
   

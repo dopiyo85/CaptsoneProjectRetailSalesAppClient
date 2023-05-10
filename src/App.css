@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: beige;
 }
 
 nav {
@@ -27,7 +28,7 @@ nav li a {
 }
 
 nav li a:hover {
-  background-color: #cc1515;
+  background-color: hsl(264, 20%, 85%);
 }
 
 h1, h2, h4 {
@@ -35,7 +36,7 @@ h1, h2, h4 {
 }
 
 footer {
-  background-color: #79c45e;
+  background-color: #77cf57;
   color: white;
   padding: 20px;
   display: flex;

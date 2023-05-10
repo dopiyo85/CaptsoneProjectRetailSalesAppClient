@@ -6,6 +6,7 @@ import './styles.css';
 import Home from './components/Home';
 import Faqs from './components/Faqs';
 import ShoppingCart from './components/ShoppingCart';
+import About from './components/AboutUs';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -34,15 +35,6 @@ class ErrorBoundary extends React.Component {
 // function Home() {
 //   return <h1>Welcome to the Online App</h1>;
 // }
-
-function About() {
-  return (
-    <div>
-      <h1>About Us</h1>
-      <p>We are a company dedicated to providing quality online products to our customers.</p>
-    </div>
-  );
-}
 
 function Dashboard() {
   const [dashboard, setDashboard] = useState(null);
