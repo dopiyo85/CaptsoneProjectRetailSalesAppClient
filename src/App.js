@@ -49,7 +49,7 @@ function Dashboard() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://localhost:5005/api/dashboard')
+    axios.get('https://captsoneprojectretailsalesappbackend.onrender.com/api/dashboard')
       .then(res => setDashboard(res.data))
       .catch(err => console.log(err));
 
