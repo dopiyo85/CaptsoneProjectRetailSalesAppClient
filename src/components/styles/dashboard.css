@@ -34,4 +34,20 @@
     margin-bottom: 10px;
   }
 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
   
+  .product-container {
+    text-align: center;
+  }
+  
+  h1{
+    color: coral;
+  }
+  body{
+    text-align: center;
+  }

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { CartContext } from './CartContext';
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     console.log('Fetching data from the server...'); // Add this console.log statement
@@ -13,19 +15,14 @@ function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
-  const addToCart = (productId) => {
-    // Implement your logic to add the product to the cart
-    console.log(`Added product with ID ${productId} to cart`);
-  };
-
   return (
-    <div>
+    <div className="container">
       <h2>Dashboard</h2>
-      <table>
-        <tbody>
-          {renderRows(products, addToCart)}
-        </tbody>
-      </table>
+      <div className="product-container">
+        <table>
+          <tbody>{renderRows(products, addToCart)}</tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -47,7 +44,7 @@ function renderRows(products, addToCart) {
                 <div>{product.description}</div>
                 <div>Price: Ksh. {product.price}</div>
                 <div>Quantity: {product.quantity} in stock</div>
-                <button onClick={() => addToCart(product._id)}>Add to Cart</button>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             </td>
           </React.Fragment>
