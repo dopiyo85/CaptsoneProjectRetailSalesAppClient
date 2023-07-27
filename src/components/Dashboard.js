@@ -7,10 +7,10 @@ function Dashboard() {
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    console.log('Fetching data from the server...'); // Add this console.log statement
+    console.log('Fetching data from the server...');
 
     axios
-      .get('https://captsoneprojectretailsalesappbackend.onrender.com/api/products')
+      .get('http://localhost:5005/api/products')
       .then((res) => setProducts(res.data.slice(0, 6))) // Limiting to 6 products
       .catch((err) => console.log(err));
   }, []);
