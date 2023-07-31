@@ -5,10 +5,7 @@ const Faqs = () => {
   return (
     <div className="faq-container">
       <div className="col-md-4">
-        {/* Adds the logo */}
-        <div style={{ backgroundColor: 'white', padding: '0', display: 'inline-block' }}>
-          <img src="images/safaricom-logo-green.png" alt="Your Logo" className="footer-logo" title="Company logo" />
-        </div>
+
       </div>
       <h1 className="faq-heading">What is an online phone sales App?</h1>
       <hr></hr>
