@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import QuotationPDF from "./QuotationPDF";
 import './styles/quotation.css';
 
 const Quotation = () => {
@@ -10,6 +11,7 @@ const Quotation = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSalesAgent, setSelectedSalesAgent] = useState("");
   const [shopName, setShopName] = useState("");
+  const [generatedQuotationData, setGeneratedQuotationData] = useState(null);
 
   useEffect(() => {
     // Fetch products data
@@ -47,17 +49,21 @@ const Quotation = () => {
       const { salesAgent, product, ...otherData } = data;
       const agentName = selectedSalesAgent;
       const productId = product; // Use the selected product, not the string 'salesAgent'
-  
+
       // Combine the sales agent's name and product ID with the rest of the form data
       const requestData = {
         ...otherData,
         agentName,
         productId,
       };
-  
+
       // Your API endpoint to create a quotation
       const response = await axios.post('http://localhost:5005/api/Quotation', requestData);
       console.log('Quotation response:', response.data);
+
+      // Store the quotation data to be used for PDF generation
+      setGeneratedQuotationData(response.data);
+
       reset();
       setSelectedSalesAgent('');
       alert('Quotation created successfully!');
@@ -66,7 +72,6 @@ const Quotation = () => {
       alert('Error creating quotation');
     }
   };
-  
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -130,6 +135,11 @@ const Quotation = () => {
         </div>
         <button type="submit">Create Quotation</button>
       </form>
+
+      {/* Render the PDF viewer below the form */}
+      <div className="pdf-viewer">
+        {generatedQuotationData && <QuotationPDF quotationData={generatedQuotationData} />}
+      </div>
     </div>
   );
 };

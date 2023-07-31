@@ -30,7 +30,7 @@ const Login = () => {
       });
       console.log('Login successful:', response.data.message);
       // Set the user data in the context upon successful login
-      localStorage.setItem("user",response.data.user);
+      sessionStorage.setItem("user", JSON.stringify(response.data.user)); // Store user data in sessionStorage
       
       // Redirect to the home page after successful login
       navigate('/');
