@@ -1,145 +1,36 @@
-.home{
-    background-color: floralwhite;
+/* faqs.css */
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px; 
 }
-.faqs{
-background-color: limegreen;
-  }
 
-  nav {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  nav ul {
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 20px;
-  }
-  
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .banner {
-    background-image: url("https://example.com/banner.jpg");
-    background-size: cover;
-    color: #fff;
-    padding: 50px;
-    text-align: center;
-  }
-  
-  .banner h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .banner p {
-    font-size: 24px;
-  }
-  
-  .cta {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    padding: 50px;
-  }
-  
-  .button {
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 20px 40px;
-  }
-  
-  .button:hover {
-    background-color: #555;
-  }
-  
-  footer {
-    background-color: #333333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-  }
-  
-  footer ul {
-    display: flex;
-  }
 
-  .faq-container { 
-    background-color: cream;
-    color: black;
-    padding: 20px;
-    margin: 20px;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  
-  }
-  
-  .faq-heading {
-    font-weight: bold;
-    text-align: center;
-    font-size: 0.5 rem;
-    margin-bottom: 20px;
-  }
-  
-  .faq-questions {
-    margin-top: 20px;
-    font-size: 0.3rem;
-  }
-  
-  .faq-questions h2 {
-    font-weight: bold;
-    font-size: 0.3rem; 
-    margin-bottom: 15px;
-  }
-  
-  .faq-questions p {
-    margin-bottom: 15px;
-    font-size: 0.3rem; 
-  }
-  
-  
-  footer ul li {
-    margin-right: 20px;
-  }
-  
-  footer ul li:last-child {
-    margin-right: 0;
-  }
-  
-  footer a {
-    color: #fff;
-    font-size: 24px;
-  }
+h1, h2 {
+  font-size: 12px;
+  margin-bottom: 10px; 
+}
 
-  p{
-    color: mediumpurple;
-  }
 
-  h1{
-    color: coral;
-  }
+p {
+  font-size: 14px;
+  margin-bottom: 10px; 
+}
 
-  li {
-    text-align:left;
-    
-  }
-  
+
+hr {
+  width: 50%;
+  margin: 20px auto;
+  border:#cccccc;
+  border-top: 1px solid #ccc;
+}
+
+
+.faq-container {
+  margin-bottom: 5px;
+}

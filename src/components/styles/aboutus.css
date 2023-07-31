@@ -1,9 +1,6 @@
 .home{
     background-color: floralwhite;
 }
-.faqs{
-background-color: limegreen;
-  }
 
   nav {
     background-color: #333;
@@ -104,3 +101,38 @@ background-color: limegreen;
   body{
     text-align: center;
   }
+
+  /* aboutus.css */
+
+.faq-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+h1, h2, h3 {
+  font-size: 20px;
+  margin-bottom: 10px; 
+}
+
+
+p {
+  font-size: 14px;
+  margin-bottom: 10px; 
+}
+
+hr {
+  width: 50%;
+  margin: 20px auto;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+
+body {
+  margin-bottom: 80px;
+}

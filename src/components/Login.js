@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useUserContext } from './UserContext'; // Import the UserContext
+import './styles/login.css';
 
 const API_BASE_URL = 'http://localhost:5005/api'; 
 
@@ -39,34 +40,34 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <div id="login-form-container">
+    <h2>Login</h2>
+    <form onSubmit={handleLogin}>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+      <br />
+      <button type="submit">Login</button>
+    </form>
+  </div>
   );
 };
 
