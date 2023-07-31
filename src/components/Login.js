@@ -29,11 +29,12 @@ const Login = () => {
       });
       console.log('Login successful:', response.data.message);
       // Set the user data in the context upon successful login
-      login(response.data.user);
+      localStorage.setItem("user",response.data.user);
+      
       // Redirect to the home page after successful login
       navigate('/');
     } catch (error) {
-      console.error('Error logging in:', error.response.data.error);
+      console.error('Error logging in:', error);
     }
   };
 

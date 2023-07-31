@@ -1,30 +1,32 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { CartContext } from './CartContext';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { CartContext } from "./CartContext";
 
 function Dashboard() {
-  const [products, setProducts] = useState([]);
-  const { addToCart } = useContext(CartContext);
+  if (localStorage.getItem("user")) {
+    const [products, setProducts] = useState([]);
+    const { addToCart } = useContext(CartContext);
 
-  useEffect(() => {
-    console.log('Fetching data from the server...');
+    useEffect(() => {
+      console.log("Fetching data from the server...");
 
-    axios
-      .get('http://localhost:5005/api/products')
-      .then((res) => setProducts(res.data.slice(0, 6))) // Limiting to 6 products
-      .catch((err) => console.log(err));
-  }, []);
+      axios
+        .get("http://localhost:5005/api/products")
+        .then((res) => setProducts(res.data.slice(0, 6))) // Limiting to 6 products
+        .catch((err) => console.log(err));
+    }, []);
 
-  return (
-    <div className="container">
-      <h2>Dashboard</h2>
-      <div className="product-container">
-        <table>
-          <tbody>{renderRows(products, addToCart)}</tbody>
-        </table>
+    return (
+      <div className="container">
+        <h2>Dashboard</h2>
+        <div className="product-container">
+          <table>
+            <tbody>{renderRows(products, addToCart)}</tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else { console.log("Login In") }
 }
 
 function renderRows(products, addToCart) {
@@ -39,7 +41,7 @@ function renderRows(products, addToCart) {
               <div>
                 <div>{product.name}</div>
                 <div>
-                  <img src={product.imageUrl} alt={product.name} />
+                  <img src={product.image} alt={product.name}  />
                 </div>
                 <div>{product.description}</div>
                 <div>Price: Ksh. {product.price}</div>

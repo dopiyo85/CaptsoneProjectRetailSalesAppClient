@@ -51,3 +51,7 @@
   body{
     text-align: center;
   }
+  img {
+    width: 50px;
+    height: 80px;
+  }
