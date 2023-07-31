@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useUserContext } from './UserContext'; // Import the UserContext
 
-const API_BASE_URL = 'http://localhost:5005'; // Replace this with your backend server URL
+const API_BASE_URL = 'http://localhost:5005/api'; 
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const { login } = useUserContext();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +28,10 @@ const Login = () => {
         password,
       });
       console.log('Login successful:', response.data.message);
+      // Set the user data in the context upon successful login
+      login(response.data.user);
+      // Redirect to the home page after successful login
+      navigate('/');
     } catch (error) {
       console.error('Error logging in:', error.response.data.error);
     }
