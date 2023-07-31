@@ -93,7 +93,7 @@ class ErrorBoundary extends React.Component {
       <UserProvider>
         <Router>
           <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-success">
+          <nav className="navbar navbar-expand-lg navbar-light "style={{ backgroundColor: "#00c000" }}>
               <div className="container-fluid">
                 <Link to="/" className="navbar-brand text-light">
                   <img
@@ -118,37 +118,37 @@ class ErrorBoundary extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                      <Link to="/" className="nav-link btn btn-success" aria-current="page">
+                      <Link to="/" className="nav-link btn btn-light" aria-current="page">
                         Home
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/about" className="nav-link btn btn-success">
-                        About Us
+                      <Link to="/about" className="nav-link btn btn-light">
+                        About
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/dashboard" className="nav-link btn btn-success">
+                      <Link to="/dashboard" className="nav-link btn btn-light">
                         Dashboard
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/faqs" className="nav-link btn btn-success">
+                      <Link to="/faqs" className="nav-link btn btn-light">
                         FAQs
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/quotation" className="nav-link btn btn-success">
+                      <Link to="/quotation" className="nav-link btn btn-light">
                         Quotation
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/register" className="nav-link btn btn-success">
+                      <Link to="/register" className="nav-link btn btn-light">
                         Register
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/login" className="nav-link btn btn-success">
+                      <Link to="/login" className="nav-link btn btn-light">
                         Login
                       </Link>
                     </li>
@@ -160,7 +160,7 @@ class ErrorBoundary extends React.Component {
                       placeholder="Search"
                       aria-label="Search"
                     />
-                    <button className="btn btn-success me-2 ms-2" type="submit">
+                    <button className="btn btn-light me-2 ms-2" type="submit">
                       Search
                     </button>
                   </form>
