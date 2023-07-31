@@ -1,58 +1,46 @@
 /* Styling for the form container */
-.quotation-form {
+#register-form {
     max-width: 400px;
-    margin: 0 auto;
-    padding: 5px;
+    margin: 0 auto; 
+    padding: 20px;
     border: 5px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
- 
+  
   /* Styling for the form headings */
   h2 {
-    font-size: 15px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
     color: #333;
   }
   
   /* Styling for the form fields */
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  .form-group label {
+  label {
     display: block;
-    font-size: 15px;
-    margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
     color: #666;
   }
   
   /* Styling for the input fields */
   input[type="text"],
-  input[type="number"],
-  select {
+  input[type="email"],
+  input[type="password"] {
     width: 100%;
     padding: 10px;
-    font-size: 15px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 15px;
   }
-  
-  select {
-    appearance: none;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 30px;
-  }
-  
-  /* Styling for the submit button */
+    /* Styling for the submit button */
   button[type="submit"] {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -61,4 +49,3 @@
   button[type="submit"]:hover {
     background-color: #0056b3;
   }
-

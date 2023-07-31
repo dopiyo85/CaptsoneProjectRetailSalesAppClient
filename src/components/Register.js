@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './styles/register.css';
 
 const API_BASE_URL = 'http://localhost:5005/api'; 
 
@@ -38,49 +39,45 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      {registrationSuccess ? (
-        <p>Registration successful! Please proceed to login.</p>
-      ) : (
-        <form onSubmit={handleRegister}>
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <button type="submit">Register</button>
-        </form>
-      )}
-    </div>
+    <div id="register-form"> 
+    <h2>Register</h2>
+    <form onSubmit={handleRegister}>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+      <br />
+      <label>
+        Email:
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+          required
+        />
+      </label>
+      <br />
+      <button type="submit">Register</button>
+    </form>
+  </div>
   );
 };
 
