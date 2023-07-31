@@ -18,6 +18,9 @@ const Home = () => {
 
   return (
     <div className="home">
+      <div className="content">
+        <h1>Welcome to Safaricom Online Sales App</h1>
+        </div>
       <div className="slider-container">
         <Slider {...sliderSettings}>
           <div>
@@ -33,11 +36,6 @@ const Home = () => {
             <img src="https://assets.shop.masoko.com/catalog/product/r/e/redmi-a1-black-1000.png" alt="Slide 3" />
           </div>
         </Slider>
-      </div>
-
-      <div className="content">
-        <h1>Welcome to our store</h1>
-        <p>Shop the latest products from our collection</p>
         <div className="cta">
           <Link to="/dashboard" className="button">
             Shop Now

@@ -31,10 +31,10 @@ const Quotation = () => {
 
   useEffect(() => {
     const selectedAgent = salesAgents.find(
-      (agent) => agent.name === selectedSalesAgent
+      (agent) => agent.name == selectedSalesAgent
     );
     if (selectedAgent) {
-      setShopName(selectedAgent.shopName);
+      setShopName(selectedAgent.shop.shopName);
     } else {
       setShopName("");
     }
