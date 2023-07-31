@@ -1,3 +1,97 @@
+/* App.css */
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the main container */
+.App {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* Styles for specific components within App.js */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for a custom component */
+.custom-component {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
+/* Styles for FAQ section */
+.faq-container {
+  background-color: cream;
+  color: black;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-heading {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-questions {
+  margin-top: 20px;
+  font-size: 0.3rem;
+}
+
+.faq-questions h2 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.faq-questions p {
+  margin-bottom: 15px;
+}
+
 body {
   margin: 0;
   padding: 0;
