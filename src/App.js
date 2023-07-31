@@ -182,55 +182,9 @@ class ErrorBoundary extends React.Component {
               </Routes>
             </ErrorBoundary>
 
-            <footer id="footer" className="bg-success text-light">
-              <div className="container-fluid d-flex">
-                <span className="navbar-brand">CAPSTONE &trade;</span>
-                <span className="navbar-brand fs-6 ms-auto">Follow Us:</span>
-                <div className="social-icons">
-                  <a
-                    href="https://www.instagram.com/safaricomplc_/"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="instagram"
-                  >
-                    <i className="bi bi-instagram"></i>
-                  </a>
-                  <a
-                    href="https://web.facebook.com/SafaricomPLC"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="facebook"
-                  >
-                    <i className="bi bi-facebook"></i>
-                  </a>
-                  <a
-                    href="http://m.me/SafaricomZuri"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="whatsapp"
-                  >
-                    <i className="bi bi-whatsapp"></i>
-                  </a>
-                  <a
-                    href="https://www.tiktok.com/@safaricomplc?lang=en"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="tiktok"
-                  >
-                    <i className="bi bi-tiktok"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4>Contact Us</h4>
-                <ul>
-                  <li>Email: customercare@safaricom.co.ke</li>
-                  <li>Phone: 100 for prepaid and 200 for postpaid</li>
-                  <li>Address: 123 Main Street, Anytown USA</li>
-                </ul>
-              </div>
-            </footer>
-          </div>
+            </div>
+      {/* Footer */}
+      <Footer />
         </Router>
       </UserProvider>
     </CartProvider>
