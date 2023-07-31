@@ -2,37 +2,53 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CartContext } from "./CartContext";
 
-function Dashboard() {
-  if (localStorage.getItem("user")) {
-    const [products, setProducts] = useState([]);
-    const { addToCart } = useContext(CartContext);
+const deviceImageStyle = {
+  width: "200px",
+  height: "200px",
+};
 
-    useEffect(() => {
+function Dashboard() {
+  const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
+  const [message, setMessage] = useState(""); // State variable for the message
+
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
       console.log("Fetching data from the server...");
 
       axios
         .get("http://localhost:5005/api/products")
-        .then((res) => setProducts(res.data.slice(0, 6))) // Limiting to 6 products
+        .then((res) => {
+          setProducts(res.data.slice(0, 12)); // Limiting to 12 products
+          setMessage(""); // Clear the message if user is logged in
+        })
         .catch((err) => console.log(err));
-    }, []);
+    } else {
+      setMessage("Please log in to view products.");
+    }
+  }, []);
 
-    return (
-      <div className="container">
-        <h2>Dashboard</h2>
-        <div className="product-container">
-          <table>
-            <tbody>{renderRows(products, addToCart)}</tbody>
-          </table>
-        </div>
+  return (
+    <div className="container">
+      <h2>Dashboard</h2>
+      {/* Display the message if there's any */}
+      {message && <div className="message">{message}</div>}
+      <div className="product-container">
+        <table>
+          <tbody>{renderRows(products, addToCart)}</tbody>
+        </table>
       </div>
-    );
-  } else { console.log("Login In") }
+    </div>
+  );
 }
 
 function renderRows(products, addToCart) {
   const rows = [];
-  for (let i = 0; i < products.length; i += 3) {
-    const rowProducts = products.slice(i, i + 3);
+  const productsPerRow = 6; // Display 6 devices in each row
+
+  for (let i = 0; i < products.length; i += productsPerRow) {
+    const rowProducts = products.slice(i, i + productsPerRow);
     const row = (
       <tr key={i}>
         {rowProducts.map((product) => (
@@ -41,7 +57,7 @@ function renderRows(products, addToCart) {
               <div>
                 <div>{product.name}</div>
                 <div>
-                  <img src={product.image} alt={product.name}  />
+                  <img src={product.image} alt={product.name} style={deviceImageStyle} />
                 </div>
                 <div>{product.description}</div>
                 <div>Price: Ksh. {product.price}</div>

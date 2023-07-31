@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -12,7 +12,7 @@ import Quotation from "./components/quotation";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { CartProvider } from "./components/CartContext";
-import { UserProvider, useUserContext } from "./components/UserContext"; 
+import { UserProvider, useUserContext } from "./components/UserContext";
 import Footer from "./components/Footer";
 
 class ErrorBoundary extends React.Component {
@@ -39,9 +39,25 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-  function App() {
-    const { setUser } = useUserContext();
+function App() {
+  const { user, setUser } = useUserContext();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  
+  // Effect to check for user data in sessionStorage and set the user if available
+  useEffect(() => {
+    const userFromSession = JSON.parse(sessionStorage.getItem("user"));
+    if (userFromSession) {
+      setUser(userFromSession);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+   useEffect(() => {
+      if (isLoggedIn && user) {
+      sessionStorage.setItem("user", JSON.stringify(user));
+    }
+  }, [isLoggedIn, user]);
 
   // Function to handle user login
   const handleLogin = async (formData) => {
@@ -79,6 +95,7 @@ class ErrorBoundary extends React.Component {
       if (response.ok) {
         setUser(null);
         setIsLoggedIn(false);
+        sessionStorage.removeItem("user"); // Remove user data from sessionStorage upon logout
       } else {
         // Handle logout error
         console.log("Error logging out.");
@@ -89,11 +106,11 @@ class ErrorBoundary extends React.Component {
   };
 
   return (
-    <CartProvider>
-      <UserProvider>
+    <UserProvider>
+      <CartProvider>
         <Router>
           <div>
-          <nav className="navbar navbar-expand-lg navbar-light "style={{ backgroundColor: "#00c000" }}>
+            <nav className="navbar navbar-expand-lg navbar-light " style={{ backgroundColor: "#00c000" }}>
               <div className="container-fluid">
                 <Link to="/" className="navbar-brand text-light">
                   <img
@@ -153,6 +170,7 @@ class ErrorBoundary extends React.Component {
                       </Link>
                     </li>
                   </ul>
+
                   <form className="d-flex ms-2 me-4">
                     <input
                       className="form-control me-2 ms-2"
@@ -167,7 +185,18 @@ class ErrorBoundary extends React.Component {
                 </div>
               </div>
             </nav>
-
+            {/* Display user details on the navbar */}
+            {isLoggedIn && user && (
+              <div className="navbar-text text-dark">
+                Welcome: {user.username}
+              </div>
+            )}
+            {/* Logout button */}
+            {isLoggedIn && (
+              <button className="btn btn-light" onClick={handleLogout}>
+                Logout
+              </button>
+            )}
             <ErrorBoundary>
               <Routes>
                 <Route path="/about" element={<About />} />
@@ -182,12 +211,12 @@ class ErrorBoundary extends React.Component {
               </Routes>
             </ErrorBoundary>
 
-            </div>
-      {/* Footer */}
-      <Footer />
+          </div>
+          {/* Footer */}
+          <Footer />
         </Router>
-      </UserProvider>
-    </CartProvider>
+      </CartProvider>
+    </UserProvider>
   );
 }
 
