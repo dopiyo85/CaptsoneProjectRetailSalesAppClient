@@ -29,7 +29,7 @@ const ShoppingCart = () => {
               {cartItems.map((item) => (
                 <tr key={item.id}>
                   <td>{item.name}</td>
-                  <td>${item.price}</td>
+                  <td>Kshs.{item.price}</td>
                   <td>
                     {/* Remove button to remove the product */}
                     <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
