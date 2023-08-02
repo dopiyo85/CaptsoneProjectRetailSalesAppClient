@@ -45,21 +45,40 @@ const Quotation = () => {
 
   const onSubmit = async (data) => {
     try {
-      // Extract the sales agent's name and product ID from the form data
       const { salesAgent, product, ...otherData } = data;
       const agentName = selectedSalesAgent;
-      const productId = product; // Use the selected product, not the string 'salesAgent'
-
-      // Combine the sales agent's name and product ID with the rest of the form data
+  
+      // Fetch the product details based on the selected product name
+      const selectedProduct = products.find((p) => p.name === product);
+  
+      if (!selectedProduct) {
+        alert('Selected product not found.');
+        return;
+      }
+  
+      // Combine the sales agent's name and the rest of the form data
       const requestData = {
         ...otherData,
         agentName,
-        productId,
+        product: selectedProduct.name, 
       };
 
+      console.log('Request Data:', requestData);
+
       // Your API endpoint to create a quotation
-      const response = await axios.post('http://localhost:5005/api/Quotation', requestData);
+      const response = await axios.post(
+        'http://localhost:5005/api/quotation',
+        requestData,
+        { headers: { 'Content-Type': 'application/json' } }
+      );
       console.log('Quotation response:', response.data);
+
+      // Check if the response contains an error message
+      if (response.data.error) {
+        console.error('Error creating quotation:', response.data.error);
+        alert('Error creating quotation: ' + response.data.error);
+        return;
+      }
 
       // Store the quotation data to be used for PDF generation
       setGeneratedQuotationData(response.data);
@@ -69,7 +88,7 @@ const Quotation = () => {
       alert('Quotation created successfully!');
     } catch (error) {
       console.error('Error creating quotation:', error);
-      alert('Error creating quotation');
+      alert('Error creating quotation: ' + error.message); // Display the error message
     }
   };
 
