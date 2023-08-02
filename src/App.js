@@ -7,7 +7,7 @@ import Faqs from "./components/Faqs";
 import ShoppingCart from "./components/ShoppingCart";
 import About from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
-import Quotation from "./components/quotation";
+import Quotation from "./components/Quotation";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { CartProvider } from "./components/CartContext";
