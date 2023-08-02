@@ -40,7 +40,7 @@ const Register = () => {
 
   return (
     <div id="register-form"> 
-    <h2>Register</h2>
+    <h2 style={{ fontSize: '24px', marginBottom: '20px', color: 'orange', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)', fontWeight: 'bold' }}>REGISTER</h2>
     <form onSubmit={handleRegister}>
       <label>
         Username:
