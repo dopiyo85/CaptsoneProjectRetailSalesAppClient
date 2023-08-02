@@ -49,3 +49,17 @@
   button[type="submit"]:hover {
     background-color: #0056b3;
   }
+  button.logout-button {
+    background-color: #dc3545; /* Red color */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.logout-button:hover {
+    background-color: #c82333; /* Darker shade of red on hover */
+  }

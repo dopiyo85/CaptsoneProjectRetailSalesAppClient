@@ -1,108 +1,66 @@
-.home{
-  background-color: floralwhite;
+/* home.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
-  
-  nav {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  nav ul {
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 20px;
-  }
-  
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .banner {
-    background-image: url("https://example.com/banner.jpg");
-    background-size: cover;
-    color: hwb(0 100% 0%);
-    padding: 50px;
-    text-align: center;
-  }
-  
-  .banner h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .banner p {
-    font-size: 24px;
-  }
-  
-  .cta {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    padding: 50px;
-  }
-  
-  .button {
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 20px 40px;
-  }
-  
-  .button:hover {
-    background-color: #555;
-  }
-  
-  footer {
-    background-color: #333333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-  }
-  
-  footer ul {
-    display: flex;
-  }
-  
-  footer ul li {
-    margin-right: 20px;
-  }
-  
-  footer ul li:last-child {
-    margin-right: 0;
-  }
-  
-  footer a {
-    color: #fff;
-    font-size: 24px;
-  }
 
-  body{
-    background-color:#f1f1f1
-  }
-  p{
-    color: lightskyblue;
-  }
+.home {
+  width: 100%;
+  height: 100vh;
+ 
 
-  h1{
-    color: darkturquoise;
-  }
-  
-  h1 {
-    color: white;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-  }
+  align-items: center;
+  background-color: #f1eeee;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slick-slider {
+  width: 100%;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 10px;
+  margin-bottom: 10px;
+  color: #007bff; 
+  text-transform: uppercase; 
+  font-weight: bold; 
+  letter-spacing: 0.5px; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.button {
+  display: inline-block;
+  padding: 4px 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  outline: 0;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.very-small-button {
+  padding: 4px 8px;
+  font-size: 5px;
+}

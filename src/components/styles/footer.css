@@ -1,35 +1,36 @@
 /* Centers the social icons in a row */
 section.mb-0 {
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Adds spacing between the social icons */
-  section.mb-0 .btn-floating {
-    margin: 2%;
-  }
-  
-  /* Fixes the footer to the bottom of the page */
-  #footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #00C000;
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  /* Styles the copyright information */
-  .footer-copyright p {
-    color: #0c0d0d;
-    font-weight: bold;
-    font-size: 11px;
-  }
+/* Adds spacing between the social icons */
+section.mb-0 .btn-floating {
+  margin: 2%;
+}
 
-   /* Styles the copyright information */
-   .footer-thankyou p {
-    color: #0c0d0d;
-    font-weight: bold;
-    font-size: 11px;
-  }
+/* Fixes the footer to the bottom of the page */
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00C000;
+  height: 75px; 
+}
+
+/* Styles the copyright information */
+.footer-copyright p {
+  color: #0c0d0d;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+/* Styles the thank you note */
+.footer-thankyou p {
+  color: #0c0d0d;
+  font-weight: bold;
+  font-size: 11px;
+}
   
 

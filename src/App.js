@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 import "./App.css";
 import "./styles.css";
 import Home from "./components/Home";
@@ -14,6 +14,7 @@ import { CartProvider } from "./components/CartContext";
 import { UserProvider, useUserContext } from "./components/UserContext";
 import Footer from "./components/Footer";
 import CartIcon from './components/CartIcon';
+import PaymentPage from './components/PaymentPage';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -109,7 +110,7 @@ function App() {
       <CartProvider>
         <Router>
           <div>
-            <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#00c000" }}>
+            <nav className="navbar navbar-expand-lg navbar-light - fixed top" style={{ backgroundColor: "#00c000" }}>
               <div className="container-fluid">
                 <Link to="/" className="navbar-brand text-light">
                   <img
@@ -170,23 +171,21 @@ function App() {
                     </li>
 
                     <li className="nav-item">
-                      <Link to="/shoppingcart" className="nav-link btn btn- light">
-                      {/* Use the CartIcon component */}
-                        <CartIcon />
+                      <Link to="/shoppingcart" className="nav-link btn btn-light">
+                        {/* Wrap the CartIcon component with a <span> element */}
+                        <span className="cart-icon-outline">
+                          <CartIcon />
+                        </span>
                       </Link>
                     </li>
-                  </ul>
-                  <form className="d-flex ms-2 me-4">
-                    <input
-                      className="form-control me-2 ms-2"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    <button className="btn btn-light me-2 ms-2" type="submit">
-                      Search
+
+                    <button
+                      className="btn btn-light me-2 ms-2"
+                      onClick={() => window.location.reload()}
+                    >
+                      Refresh
                     </button>
-                  </form>
+                  </ul>
                 </div>
               </div>
             </nav>
@@ -223,14 +222,15 @@ function App() {
                 />
                 <Route path="/faqs" element={<Faqs />} />
                 <Route path="/shoppingcart" element={<ShoppingCart />} />
+                <Route path="/paymentpage/:invoiceId" element={<PaymentPage />} />
                 <Route path="/quotation" element={<Quotation />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login handleLogin={handleLogin} />} />
                 <Route path="/carticon" element={<CartIcon />} />
-                <Route path="/footer" element={<Footer />} />
 
-                
+
+
               </Routes>
             </ErrorBoundary>
           </div>

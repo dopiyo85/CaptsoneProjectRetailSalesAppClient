@@ -47,3 +47,7 @@
 .shopping-cart button:hover {
   background-color: #0069d9;
 }
+
+.shopping-cart .total-price button {
+  margin: auto;
+}

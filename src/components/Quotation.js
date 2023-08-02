@@ -79,7 +79,7 @@ const Quotation = () => {
 
   return (
     <div className="quotation-form">
-      <h2>Create Quotation</h2>
+      <h2 style={{ fontSize: '24px', marginBottom: '20px', color: 'orange', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)', fontWeight: 'bold' }}>CREATE QUOTATION</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label>Customer Name:</label>
