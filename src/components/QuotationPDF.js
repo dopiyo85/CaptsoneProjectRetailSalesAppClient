@@ -48,7 +48,7 @@ const QuotationPDF = ({ quotationData }) => {
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           {/* Replace the image src with the path to your Safaricom logo */}
-          <Image src="/path/to/safaricom-logo.png" style={styles.logo} />
+          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFxu27SOpo6W4mFQtXd1UQShj_rRi5FhNdg&usqp=CAU" style={styles.logo} />
           <Text style={styles.title}>Quotation</Text>
         </View>
         <View style={styles.section}>

@@ -228,9 +228,6 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login handleLogin={handleLogin} />} />
                 <Route path="/carticon" element={<CartIcon />} />
-
-
-
               </Routes>
             </ErrorBoundary>
           </div>
