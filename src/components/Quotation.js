@@ -103,7 +103,7 @@ const Quotation = () => {
         <div className="form-group">
           <label>Customer Name:</label>
           <input
-            type="text"
+            type="text" name="customerName"
             {...register("customerName", { required: true })}
           />
         </div>
@@ -121,13 +121,13 @@ const Quotation = () => {
         <div className="form-group">
           <label>Quantity:</label>
           <input
-            type="number"
+            type="number" name="quantity"
             {...register("quantity", { required: true, min: 1 })}
           />
         </div>
         <div className="form-group">
           <label>Company Name:</label>
-          <input type="text" {...register("companyName", { required: true })} />
+          <input type="text" name="companyName"{...register("companyName", { required: true })} />
         </div>
         <div className="form-group">
           <label>Sales Agent:</label>
@@ -147,7 +147,7 @@ const Quotation = () => {
         <div className="form-group">
           <label>Shop Name:</label>
           <input
-            type="text"
+            type="text" name="shopName"
             value={shopName}
             {...register("shopName", { required: true })}
           />
