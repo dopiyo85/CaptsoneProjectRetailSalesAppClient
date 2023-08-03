@@ -2,11 +2,11 @@
 Safaricom Retail Sales App
 
 ## Names of Contributors
-# Diana 
-# Mary
-# Pius
-# David
-# Arthanasias
+* Diana 
+* Mary
+* Pius
+* David
+* Arthanasias
 
 ### Project Description
 This is a online Sales App which is able to perform the following tasks:
