@@ -7,7 +7,7 @@ const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/products')
+    axios.get('https://captsoneprojectretailsalesappbackend.onrender.com/api/products')
       .then(res => {
         setProducts(res.data);
         setIsLoading(false);

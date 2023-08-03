@@ -16,7 +16,7 @@ const Quotation = () => {
   useEffect(() => {
     // Fetch products data
     axios
-      .get("http://localhost:5005/api/products")
+      .get("https://captsoneprojectretailsalesappbackend.onrender.com/api/products")
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
@@ -25,7 +25,7 @@ const Quotation = () => {
 
     // Fetch sales agents data
     axios
-      .get("http://localhost:5005/api/salesAgent")
+      .get("https://captsoneprojectretailsalesappbackend.onrender.com/api/salesAgent")
       .then((res) => {
         setSalesAgents(res.data);
       })
@@ -67,7 +67,7 @@ const Quotation = () => {
 
       // Your API endpoint to create a quotation
       const response = await axios.post(
-        'http://localhost:5005/api/quotation',
+        'https://captsoneprojectretailsalesappbackend.onrender.com/api/quotation',
         requestData,
         { headers: { 'Content-Type': 'application/json' } }
       );
@@ -103,7 +103,7 @@ const Quotation = () => {
         <div className="form-group">
           <label>Customer Name:</label>
           <input
-            type="text"
+            type="text" name="customerName"
             {...register("customerName", { required: true })}
           />
         </div>
@@ -121,13 +121,13 @@ const Quotation = () => {
         <div className="form-group">
           <label>Quantity:</label>
           <input
-            type="number"
+            type="number" name="quantity"
             {...register("quantity", { required: true, min: 1 })}
           />
         </div>
         <div className="form-group">
           <label>Company Name:</label>
-          <input type="text" {...register("companyName", { required: true })} />
+          <input type="text" name="companyName"{...register("companyName", { required: true })} />
         </div>
         <div className="form-group">
           <label>Sales Agent:</label>
@@ -147,7 +147,7 @@ const Quotation = () => {
         <div className="form-group">
           <label>Shop Name:</label>
           <input
-            type="text"
+            type="text" name="shopName"
             value={shopName}
             {...register("shopName", { required: true })}
           />
