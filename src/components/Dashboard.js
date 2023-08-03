@@ -21,7 +21,7 @@ function Dashboard() {
       console.log("Fetching data from the server...");
 
       axios
-        .get("http://localhost:5005/api/products")
+        .get("https://captsoneprojectretailsalesappbackend.onrender.com/api/products")
         .then((res) => {
           // Limiting to 12 products
           setProducts(res.data.slice(0, 12));

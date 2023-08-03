@@ -16,7 +16,7 @@ const Quotation = () => {
   useEffect(() => {
     // Fetch products data
     axios
-      .get("http://localhost:5005/api/products")
+      .get("https://captsoneprojectretailsalesappbackend.onrender.com/api/products")
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
@@ -25,7 +25,7 @@ const Quotation = () => {
 
     // Fetch sales agents data
     axios
-      .get("http://localhost:5005/api/salesAgent")
+      .get("https://captsoneprojectretailsalesappbackend.onrender.com/api/salesAgent")
       .then((res) => {
         setSalesAgents(res.data);
       })
@@ -67,7 +67,7 @@ const Quotation = () => {
 
       // Your API endpoint to create a quotation
       const response = await axios.post(
-        'http://localhost:5005/api/quotation',
+        'https://captsoneprojectretailsalesappbackend.onrender.com/api/quotation',
         requestData,
         { headers: { 'Content-Type': 'application/json' } }
       );

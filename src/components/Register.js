@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './styles/register.css';
 
-const API_BASE_URL = 'http://localhost:5005/api'; 
+const API_BASE_URL = 'https://captsoneprojectretailsalesappbackend.onrender.com/api'; 
 
 const Register = () => {
   const [username, setUsername] = useState('');

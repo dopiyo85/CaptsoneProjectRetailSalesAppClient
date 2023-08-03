@@ -88,7 +88,7 @@ function App() {
   // Function to handle user logout
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5005/api/user/logout", {
+      const response = await fetch("https://captsoneprojectretailsalesappbackend.onrender.com/api/user/logout", {
         method: "POST",
       });
 
