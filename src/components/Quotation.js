@@ -45,7 +45,8 @@ const Quotation = () => {
 
   const onSubmit = async (data) => {
     try {
-      const { salesAgent, product, ...otherData } = data;
+      data.quantity = parseInt(data.quantity);
+      const { salesAgent, product,...otherData } = data;
       const agentName = selectedSalesAgent;
   
       // Fetch the product details based on the selected product name
