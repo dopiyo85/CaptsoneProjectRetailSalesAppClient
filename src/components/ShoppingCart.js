@@ -3,62 +3,63 @@ import { CartContext } from './CartContext';
 import './styles/shoppingCart.css';
 import InvoicePage from './InvoicePage';
 import { useNavigate } from 'react-router-dom';
+import ReceiptPage from './ReceiptPage';
 
 const ShoppingCart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
   const [checkoutStarted, setCheckoutStarted] = useState(true);
   const [checkoutError, setCheckoutError] = useState('');
+  const [selectedShop, setSelectedShop] = useState('');
+  const [receiptData, setReceiptData] = useState(null);
   const [savedInvoiceId, setSavedInvoiceId] = useState(null);
   const navigate = useNavigate();
 
-  const handleRemoveFromCart = (itemId) => {
-    removeFromCart(itemId);
+  const handleShopSelection = (e) => {
+    setSelectedShop(e.target.value);
   };
 
-  const handleCheckout = async () => {
-    // Prepares the data to create an invoice
-    const invoiceData = {
-      customerName: 'John Doe',
-      product: cartItems.map((item) => item.name).join(', '),
-      quantity: cartItems.length,
-      totalPrice,
-      date: new Date(),
-      agent: 'Agent Name',
-      shop: 'Shop Name',
-      companyName: 'Company Name',
-    };
-
+  const handleMakePayment = async () => {
     try {
-      // Sends the invoice data to the backend for saving in the database
-      const response = await fetch('/api/invoice', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(invoiceData),
-      });
+      // ... (existing code for API call and response handling)
 
       if (response.ok) {
-        // Gets the saved invoice ID from the response
         const data = await response.json();
         const savedInvoiceId = data._id;
-        // Sets the checkoutStarted state to true to show the InvoicePage component
+
+        setReceiptData({
+          customerName: 'John Doe',
+          product: cartItems.map((item) => item.name).join(', '),
+          quantity: cartItems.length,
+          totalPrice,
+          date: new Date(),
+          agent: 'Agent Name',
+          shop: selectedShop,
+          companyName: 'Company Name',
+        });
+
         setCheckoutStarted(true);
-        // Stores the saved invoice ID in the state to pass it to the InvoicePage component
-        setSavedInvoiceId(savedInvoiceId);
-        // Navigates to the InvoicePage with the generated invoiceId as a parameter
-        navigate(`/invoicepage/${savedInvoiceId}`);
+        setSavedInvoiceId(savedInvoiceId); // Store the savedInvoiceId in the state
+
+        try {
+          navigate(`/receipt/${savedInvoiceId}`);
+        } catch (error) {
+          console.error('Error during navigation:', error);
+          setCheckoutError('Error during navigation. Please try again later.');
+        }
       } else {
-        // Handles error response from the server
-        console.error('Error during checkout:', response.statusText);
+        const errorData = await response.json();
+        console.error('Error during checkout:', errorData.error);
         setCheckoutError('Error during checkout. Please try again later.');
       }
     } catch (error) {
       console.error('Error during checkout:', error);
-      // Handles network or other errors
-      setCheckoutError('Error during checkout. Please try again later.');
+      setCheckoutError('Error during payment. Please try again later.');
     }
+  };
+
+  const handleRemoveFromCart = (itemId) => {
+    removeFromCart(itemId);
   };
 
   return (
@@ -94,11 +95,29 @@ const ShoppingCart = () => {
               </tr>
             </tbody>
           </table>
-          <div className="total-price">
-            {!checkoutStarted && <button onClick={handleCheckout}>Checkout</button>}
+          <div className="shop-selector">
+            <select value={selectedShop} onChange={handleShopSelection} required> 
+              <option value="">Select a shop</option>
+              <option value="Hub">Hub</option>
+              <option value="Galleria">Galleria</option>
+              <option value="Digo">Digo</option>
+              <option value="Westgate">Westgate</option>
+              <option value="Kimathi">Kimathi</option>
+              <option value="Sarit">Sarit</option>
+              <option value="Eldoret">Eldoret</option>
+              <option value="Busia">Busia</option>
+            </select>
           </div>
+          <hr></hr>
+        
           {checkoutError && <p>{checkoutError}</p>}
-          {checkoutStarted && <InvoicePage invoiceId={savedInvoiceId} totalPrice={totalPrice} />}
+          {checkoutStarted ? (
+            <InvoicePage invoiceId={savedInvoiceId} totalPrice={totalPrice} cartItems={cartItems} />
+          ) : (
+            <ReceiptPage />
+          )}
+          <button onClick={handleMakePayment}>MAKE PAYMENT</button>
+         
         </>
       )}
     </div>

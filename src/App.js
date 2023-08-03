@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom';
 import "./App.css";
 import "./styles.css";
 import Home from "./components/Home";
@@ -15,6 +15,8 @@ import { UserProvider, useUserContext } from "./components/UserContext";
 import Footer from "./components/Footer";
 import CartIcon from './components/CartIcon';
 import PaymentPage from './components/PaymentPage';
+import ReceiptPage from './components/ReceiptPage';
+ 
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -221,13 +223,14 @@ function App() {
                   }
                 />
                 <Route path="/faqs" element={<Faqs />} />
-                <Route path="/shoppingcart" element={<ShoppingCart />} />
                 <Route path="/paymentpage/:invoiceId" element={<PaymentPage />} />
                 <Route path="/quotation" element={<Quotation />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login handleLogin={handleLogin} />} />
                 <Route path="/carticon" element={<CartIcon />} />
+                <Route path="/shoppingcart" element={<ShoppingCart />} />
+                <Route path="/receiptpage" element={<ReceiptPage />} />
               </Routes>
             </ErrorBoundary>
           </div>
