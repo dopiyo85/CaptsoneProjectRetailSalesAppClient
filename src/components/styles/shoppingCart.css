@@ -51,3 +51,10 @@
 .shopping-cart .total-price button {
   margin: auto;
 }
+
+.shop-selector {
+  position: relative;
+  display: inline-block;
+  width: 250px; 
+  height: 30px; 
+}
