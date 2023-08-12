@@ -14,7 +14,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4">
                         <section className="mb-0">
-                            {/* Adds the social icons */}
+                            {/* Adds the social icons to the project */}
                             <a className="btn btn-outline-dark btn-floating m-1" href="https://web.facebook.com/SafaricomPLC" target="_blank" rel="noopener noreferrer" role="button" title="Facebook"><i className="fab fa-facebook-f"></i></a>
                             <a className="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/Safaricom_Care" target="_blank" rel="noopener noreferrer" role="button" title="Twitter"><i className="fab fa-twitter"></i></a>
                             <a className="btn btn-outline-dark btn-floating m-1" href="https://www.safaricom.co.ke/personal/value-added-services/information-services/zuri" target="_blank" rel="noopener noreferrer" role="button" title="WhatsApp"><i className="fab fa-whatsapp"></i></a>
